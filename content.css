@@ -1,0 +1,169 @@
+/* Styles for content script elements */
+.genius-summary-widget {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 350px;
+    max-width: 90vw;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    backdrop-filter: blur(20px);
+    animation: slideInFromRight 0.5s ease-out;
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.genius-summary-widget .widget-header {
+    background: rgba(139, 92, 246, 0.2);
+    padding: 15px 20px;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.genius-summary-widget .widget-header h3 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    background: linear-gradient(45deg, #8b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.genius-summary-widget .close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #ffffff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.genius-summary-widget .close-btn:hover {
+    background: rgba(239, 68, 68, 0.3);
+    transform: scale(1.1);
+}
+
+.genius-summary-widget .widget-content {
+    padding: 20px;
+    color: #e5e7eb;
+}
+
+.genius-summary-widget .widget-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+}
+
+.genius-summary-widget .widget-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.genius-summary-widget .copy-btn,
+.genius-summary-widget .close-btn-text {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.genius-summary-widget .copy-btn {
+    background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+    color: white;
+}
+
+.genius-summary-widget .copy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+.genius-summary-widget .close-btn-text {
+    background: rgba(255, 255, 255, 0.1);
+    color: #d1d5db;
+}
+
+.genius-summary-widget .close-btn-text:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Floating action button */
+.genius-floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #8b5cf6, #ec4899);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.genius-floating-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 12px 35px rgba(139, 92, 246, 0.6);
+}
+
+.genius-floating-btn:active {
+    transform: scale(0.95);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .genius-summary-widget {
+        width: 300px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .genius-floating-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* Hide on very small screens to avoid interference */
+@media (max-width: 480px) {
+    .genius-floating-btn {
+        display: none;
+    }
+}

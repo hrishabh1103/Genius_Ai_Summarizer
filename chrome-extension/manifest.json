@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Genius AI Summarizer",
+  "version": "1.0.0",
+  "description": "Automatically summarize any webpage content and YouTube videos with AI",
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "contextMenus"
+  ],
+  
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    },
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["youtube.js"]
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Summarize this page"
+  },
+  
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["summary-widget.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  
+  "commands": {
+    "summarize-page": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Summarize current page"
+    }
+  }
+}
